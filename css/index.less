@@ -1,0 +1,240 @@
+body {
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    // height: 2000px;
+    background-color: #f2f4f7;
+}
+
+a {
+    text-decoration: none;
+    color: #707070;
+}
+
+// 当屏幕宽度超过750px时，设置使变成固定的html文字大小
+@media screen and (min-width: 750px) {
+    html {
+        font-size: 37.5px !important;
+    }
+}
+.header {
+    height: 2.133333rem;
+    border-bottom: 1px solid #eaeaea;
+    text-align: center;
+    line-height: 2.133333rem;
+    font-size: #1c1c1c;
+}
+.warp {
+    background-color: #fff;
+    padding-bottom: 1.146667rem;
+}
+.nav {
+    
+    display: flex;
+    // 显示不开就换行
+    flex-wrap: wrap;
+    padding: 1.2rem 0 1.6rem 0;
+    .item {
+        flex: 33.3%;
+        display: flex;
+        flex-direction: column;
+        // 这个是设置主轴的对齐排列模式  在这里不行，应该设置侧轴即x轴居中排列
+        // 这两个都是针对父级
+        // justify-content: center;
+        align-items: center;
+
+        // rem布局不需要考虑二倍图！！！！！！！！！！！！！！！！！
+        img {
+            width: 3.706667rem;
+            height: 3.706667rem;
+        }
+        span {
+            font-size: .666667rem;
+        }
+        // 选择前三个  &表示没有空格紧接着.item
+        &:nth-child(-n+3) {
+            // flex不需要考虑塌陷
+            margin-bottom: 1.653333rem;
+
+        }
+    }
+}
+.go {
+    margin: 0 .266667rem 1.146667rem .48rem;
+}
+
+
+.content {
+    // 一般（一般，给了也没事，只要适合就行）不给父盒子设置大小，让子元素撑大他
+    padding: 1.066667rem .64rem;
+    margin-top: .266667rem;
+    background-color: #fff;
+    
+   // 移动端一般用flex取代float，应为flex能更好的适应移动端
+  .con-hd {
+    display: flex;
+    // 设置主轴上两边对齐
+    justify-content: space-between;
+    height: 1.013333rem;
+    line-height: 1.013333rem;
+    margin-bottom: .906667rem;
+
+
+    h4 {
+        // h4标题标签默认有margin值
+        margin: 0;
+        font-size: .746667rem;
+        color: #333333;
+        .icon {
+            // span是行内元素，需转换才能设置大小
+            display: inline-block;
+            width: 1.013333rem;
+            height: 1.013333rem;
+            // 这个给父级设置，别直接给图片（有时也可以直接给图片）设置,应为图片在这个盒子中，应该
+            vertical-align: middle;
+        }
+    }
+    .more {
+        font-size: 0.586667rem;
+        color: #999999;
+      }
+    }
+  }
+  .get_job_focus {
+    position: relative;
+    .swiper-container {
+      // width: 100%;
+      height: 100%;
+      // 根据需求把宽度定位 540px
+      width: 14.4rem;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+  
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      // 竖向显示
+      flex-direction: column;
+     
+      /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    transition: 300ms;
+      // 其余的兄弟是 0.8
+      transform: scale(0.8);
+      opacity: 0.4;
+      a {
+        width: 9.013333rem;
+        height: 10.026667rem;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      p {
+        width: 9.013333rem;
+        font-size: 0.666667rem;
+        margin-top: 0.64rem;
+        color: #333;
+      }
+    }
+    // 当前选中的 slide   中间那个
+    .swiper-slide-active,
+    .swiper-slide-duplicate-active {
+      transform: scale(1);
+      z-index: 999;
+      opacity: 1;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      outline: none;
+      &:after {
+        font-size: 1.066667rem;
+        color: #333;
+      }
+    }
+  }
+
+  .study_con {
+    padding-bottom: 3.733333rem;
+  }
+
+//   学习模块轮播图
+.study {
+    
+    .study_fo {
+        padding: .266667rem;
+    }
+
+
+    // 整个轮播图盒子
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+      }
+    //   轮播图中的小盒子slide
+      .swiper-slide {
+        font-size: 18px;
+        background: #fff;
+        width: 7.733333rem;
+        height: 9.066667rem;
+        border-radius: .266667rem;
+        box-shadow: 0 0px 10px rgba(0,0,0,0.1);
+        h5 {
+            font-size: .693333rem;
+            margin: .533333rem 0;
+            font-weight: 400;
+            padding: 0 .266667rem;
+        }
+        p {
+            font-size: .693333rem;
+            color: #ff4400;
+        }
+      }
+}
+.footer {
+    // 一般不加max-width，加了也没事
+    // 固定定位必须要有宽度设置
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2.933333rem;
+
+
+    z-index: 99999;
+    display: flex;
+    padding: .506667rem;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    .item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            width: 1.04rem;
+            height: 1.093333rem;
+        }
+        p {
+            font-size: .586667rem;
+            color: #666666;
+            margin-top: .266667rem;
+        }
+    }
+}
